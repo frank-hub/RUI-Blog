@@ -1,8 +1,19 @@
-# RUII Blog
+# RUII – Blog & Career Platform
 
-A modern blog platform for **RUII**, built with Django REST Framework and React. The platform provides a content management backend for publishing articles and categories, alongside a responsive frontend for readers.
+A multi-application web platform for **RUII**, built using Django REST Framework and React.
+
+The platform currently consists of two applications:
+
+- **RUII Blog:** A content management and publishing platform for sharing articles, insights and stories.
+- **Career:** A job listing platform where visitors can explore available vacancies and apply directly to employers via email.
+
+Both applications share the same Django backend, database, API infrastructure and React frontend.
+
+---
 
 ## Features
+
+### 1. RUII Blog
 
 - Responsive blog homepage and article listing.
 - Individual article pages with unique URLs (slugs).
@@ -14,15 +25,36 @@ A modern blog platform for **RUII**, built with Django REST Framework and React.
 - REST API for delivering published content.
 - Draft and published article statuses.
 
+### 2. Career
+
+- Job vacancy listing.
+- Individual job detail pages.
+- Company and location information.
+- Job types: Full-time, Part-time, Contract, Internship and Temporary.
+- Salary information.
+- Application deadlines.
+- Job search and filtering (planned).
+- Django Admin for managing job vacancies.
+- Draft, Published and Closed job statuses.
+- Email-based job applications.
+- Apply Now button that opens the applicant's email application with a pre-filled recipient and subject.
+
+Applicants can attach their CV and send their applications directly to the employer. The platform does not currently collect or store applicant CVs.
+
+---
+
 ## Technology Stack
 
 ### Backend
+
 - Python
 - Django
 - Django REST Framework
-- Pillow (image handling)
+- django-cors-headers
+- Pillow
 
 ### Frontend
+
 - React
 - Vite
 - Axios
@@ -30,12 +62,26 @@ A modern blog platform for **RUII**, built with Django REST Framework and React.
 - React Markdown
 - Remark GFM
 
+### Database
+
+- SQLite (development)
+
+---
+
 ## Project Structure
 
 ```text
 ruii-blog-backend/
 │
 ├── blog/
+│   ├── migrations/
+│   ├── admin.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── views.py
+│   └── urls.py
+│
+├── career/
 │   ├── migrations/
 │   ├── admin.py
 │   ├── models.py
@@ -55,7 +101,10 @@ ruii-blog-backend/
 │   │   │   └── api.js
 │   │   ├── App.jsx
 │   │   ├── ArticleDetail.jsx
+│   │   ├── Career.jsx
+│   │   ├── CareerDetail.jsx
 │   │   ├── App.css
+│   │   ├── Career.css
 │   │   ├── index.css
 │   │   └── main.jsx
 │   ├── package.json
@@ -63,8 +112,12 @@ ruii-blog-backend/
 │
 ├── media/
 ├── manage.py
+├── requirements.txt
+├── .gitignore
 └── README.md
 ```
+
+---
 
 ## Getting Started
 
@@ -80,27 +133,28 @@ Ensure you have installed:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/ruii-blog-backend.git
+
 cd ruii-blog-backend
 ```
 
 ### 2. Set up the Django backend
 
-Create and activate a virtual environment:
+Create a virtual environment:
 
 ```bash
 python -m venv venv
 ```
 
-On Windows Git Bash:
+Activate it on Windows Git Bash:
 
 ```bash
 source venv/Scripts/activate
 ```
 
-Install the backend dependencies:
+Install backend dependencies:
 
 ```bash
-pip install django djangorestframework django-cors-headers pillow
+pip install -r requirements.txt
 ```
 
 Apply database migrations:
@@ -121,13 +175,13 @@ Start the Django development server:
 python manage.py runserver
 ```
 
-The backend will be available at:
+Backend:
 
-`http://127.0.0.1:8000/`
+http://127.0.0.1:8000/
 
 Django Admin:
 
-`http://127.0.0.1:8000/admin/`
+http://127.0.0.1:8000/admin/
 
 ### 3. Set up the React frontend
 
@@ -135,6 +189,11 @@ Open another terminal:
 
 ```bash
 cd frontend
+```
+
+Install dependencies:
+
+```bash
 npm install
 ```
 
@@ -144,13 +203,27 @@ Start the Vite development server:
 npm run dev
 ```
 
-The frontend will be available at:
+Frontend:
 
-`http://localhost:5173/`
+http://localhost:5173/
 
-## API Endpoints
+---
 
-The Django backend exposes the following endpoints:
+## Application URLs
+
+### Frontend
+
+| Route | Description |
+|---|---|
+| `/` | RUII homepage/blog listing |
+| `/blog` | Blog listing |
+| `/blog/:slug` | Individual blog article |
+| `/career` | Available job vacancies |
+| `/career/:slug` | Individual job details |
+
+### Backend API
+
+#### Blog API
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -159,9 +232,20 @@ The Django backend exposes the following endpoints:
 | GET | `/api/posts/<slug>/` | Retrieve an individual published post |
 | GET | `/api/categories/` | Retrieve blog categories |
 
+#### Career API
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/career/jobs/` | Retrieve published job vacancies |
+| GET | `/api/career/jobs/<slug>/` | Retrieve an individual published vacancy |
+
+---
+
 ## Content Management
 
-Content is managed through Django Admin.
+All content is managed through Django Admin.
+
+### Blog Management
 
 1. Sign in at `/admin/`.
 2. Create or manage categories.
@@ -174,23 +258,69 @@ Only published posts are returned by the public API.
 
 Article content supports Markdown formatting, including headings, paragraphs, lists, links, tables and blockquotes.
 
+### Career Management
+
+1. Sign in at `/admin/`.
+2. Navigate to Jobs.
+3. Create a new job vacancy.
+4. Add the job title and company.
+5. Specify the location and job type.
+6. Provide the job description and requirements.
+7. Add salary information where applicable.
+8. Enter the employer's application email address.
+9. Set an application deadline.
+10. Change the status to **Published** when ready.
+
+Only published vacancies appear on the public Career platform.
+
+When a visitor clicks **Apply Now**, their default email application opens with the employer's email address and a pre-filled subject. Applicants can then attach their CV and submit their application.
+
+---
+
 ## Development Notes
 
 - The Django backend and React frontend run independently during development.
+- Both applications share the same Django project and database.
 - The frontend communicates with Django through Axios.
-- Uploaded images are served through Django's media configuration during development.
+- React Router handles frontend navigation.
+- Uploaded blog images are served through Django's media configuration during development.
 - CORS is configured to allow the local Vite development server.
-- The original RUII website is maintained separately from the blog application.
+- Django Admin provides content management for both applications.
+- The original RUII website is maintained separately from this platform.
+- Environment variables and sensitive configuration should not be committed to GitHub.
+
+---
 
 ## Future Improvements
+
+### Blog
 
 - Pagination for blog posts.
 - Individual author profiles.
 - Related articles.
 - SEO metadata and social sharing.
+- Improved content editor.
+
+### Career
+
+- Job search functionality.
+- Location and job-type filters.
+- Job categories and departments.
+- Featured job vacancies.
+- Job expiry automation.
+- Pagination.
+- Improved SEO for job listings.
+
+### Platform
+
 - Production deployment configuration.
-- Improved content editor in Django Admin.
+- Improved security and environment configuration.
+- API documentation.
+- Automated testing.
+- Performance optimisation.
+
+---
 
 ## Licence
 
-This project is maintained for RUI. All rights reserved unless otherwise stated.
+This project is maintained for **RUII**. All rights reserved unless otherwise stated.
