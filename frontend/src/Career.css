@@ -1,0 +1,277 @@
+
+.career-page {
+    min-height: 100vh;
+    background: #f7f8fa;
+    color: #252b36;
+}
+
+.career-container {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.career-header {
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.career-header .career-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 75px;
+}
+
+.career-logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #172b4d;
+    text-decoration: none;
+}
+
+.career-header nav {
+    display: flex;
+    gap: 28px;
+}
+
+.career-header nav a {
+    color: #444;
+    text-decoration: none;
+}
+
+.career-banner {
+    background: #172b4d;
+    color: white;
+    padding: 75px 0;
+}
+
+.career-banner h1 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.career-banner p {
+    color: #d4dce8;
+    font-size: 16px;
+}
+
+.career-content {
+    padding-top: 55px;
+    padding-bottom: 70px;
+}
+
+.career-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.career-heading h2 {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.career-heading p {
+    color: #777;
+}
+
+.career-heading span {
+    color: #172b4d;
+    font-weight: 600;
+}
+
+.career-job-list {
+    display: grid;
+    gap: 18px;
+}
+
+.career-job-card {
+    background: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.career-job-type {
+    display: inline-block;
+    background: #eaf0fa;
+    color: #244a80;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.career-job-info h3 {
+    margin: 12px 0 5px;
+    font-size: 21px;
+}
+
+.career-company {
+    color: #666;
+    margin-bottom: 14px;
+}
+
+.career-job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    color: #777;
+    font-size: 13px;
+}
+
+.career-view-button {
+    background: #172b4d;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.career-view-button:hover {
+    background: #294a78;
+}
+
+.career-error {
+    color: #c0392b;
+}
+
+@media (max-width: 650px) {
+    .career-header .career-container {
+        flex-direction: column;
+        padding: 18px 0;
+        gap: 15px;
+    }
+
+    .career-banner h1 {
+        font-size: 29px;
+    }
+
+    .career-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .career-job-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .career-job-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+
+.career-detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 330px;
+    gap: 35px;
+    padding-top: 55px;
+    padding-bottom: 70px;
+    align-items: start;
+}
+
+.career-detail-content {
+    background: white;
+    padding: 30px;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+}
+
+.career-detail-content section {
+    margin-bottom: 35px;
+}
+
+.career-detail-content h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.career-detail-content p {
+    line-height: 1.8;
+    color: #555;
+    white-space: pre-line;
+}
+
+.career-back-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #172b4d;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.career-application-card {
+    background: white;
+    padding: 25px;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+}
+
+.career-application-card h2 {
+    margin-bottom: 22px;
+}
+
+.career-application-card div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.career-application-card div span {
+    font-size: 13px;
+    color: #888;
+}
+
+.career-application-card div strong {
+    text-transform: capitalize;
+}
+
+.career-apply-button {
+    display: block;
+    background: #172b4d;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 25px;
+}
+
+.career-apply-button:hover {
+    background: #294a78;
+}
+
+.career-apply-note {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+    margin-top: 12px;
+}
+
+.career-message {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.career-message a {
+    color: #172b4d;
+}
+
+@media (max-width: 800px) {
+    .career-detail-layout {
+        grid-template-columns: 1fr;
+    }
+}
