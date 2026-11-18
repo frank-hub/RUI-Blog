@@ -54,20 +54,21 @@ function ArticleDetail() {
         <div className="blog-site">
             <header className="site-header">
                 <div className="header-inner">
-                    <Link to="/" className="brand">
-                        <span className="brand-name">RUII<span>.</span></span>
-                        <span className="brand-tagline">INSIGHTS & STORIES</span>
-                    </Link>
+                    <a href="/" className="brand">
+                        {/* logo */}
+                        <img src="https://ruiinternet.co.ke/images/logo1.PNG" alt="RUII Logo" className="header-logo logo-top"  />
+                    </a>
 
                     <nav className="main-nav">
-                        <a href="/">Home</a>
-                        <a href="/about.html">About</a>
-                        <a href="/services.html">Services</a>
-                        <Link to="/blog" className="active">Blog</Link>
-                        <a href="/contact.html">Contact</a>
+                        <a href="https://ruiinternet.co.ke">Home</a>
+                        <a href="https://ruiinternet.co.ke/about.html">About RUII</a>
+                        <a href="https://ruiinternet.co.ke/services.html">Our Services</a>
+                        <a href="https://ruiinternet.co.ke/frontend_cms/blog" className="active">Blog</a>
+                        <a href="https://ruiinternet.co.ke/frontend_cms/career">Careers</a>
+                        <a href="https://ruiinternet.co.ke/contact.html">Contact</a>
                     </nav>
 
-                    <a href="/contact.html" className="header-button">
+                    <a href="https://ruiinternet.co.ke/contact.html" className="header-button">
                         Get in touch <span>↗</span>
                     </a>
                 </div>
@@ -129,24 +130,22 @@ function ArticleDetail() {
             <footer className="site-footer">
                 <div className="footer-inner">
                     <div className="footer-brand">
-                        <Link to="/" className="brand footer-logo">
-                            <span className="brand-name">RUII<span>.</span></span>
-                            <span className="brand-tagline">INSIGHTS & STORIES</span>
-                        </Link>
+                        <img src="https://ruiinternet.co.ke/images/logo1.PNG" alt="RUII Logo" className="header-logo logo-bottom"  />
                         <p>Ideas, technology and solutions for a connected future.</p>
                     </div>
 
                     <div className="footer-links">
                         <h4>Explore</h4>
-                        <Link to="/">Home</Link>
-                        <Link to="/blog">Blog</Link>
-                        <a href="/about.html">About RUII</a>
-                        <a href="/services.html">Our Services</a>
+                        <a href="https://ruiinternet.co.ke">Home</a>
+                        <a href="https://ruiinternet.co.ke/about">About RUII</a>
+                        <a href="https://ruiinternet.co.ke/services">Our Services</a>
+                        <a href="https://ruiinternet.co.ke/frontend_cms/blog">Blog</a>
+                        <a href="https://ruiinternet.co.ke/frontend_cms/career">Careers</a>
                     </div>
 
                     <div className="footer-links">
                         <h4>Get in touch</h4>
-                        <a href="/contact.html">Contact us</a>
+                        <a href="https://ruiinternet.co.ke/contact">Contact us</a>
                     </div>
                 </div>
 

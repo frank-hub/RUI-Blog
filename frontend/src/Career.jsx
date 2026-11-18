@@ -28,29 +28,43 @@ function Career() {
     return (
         <div className="career-page">
 
-            <header className="career-header">
-                <div className="career-container">
-                    <Link to="/career" className="career-logo">
-                        CAREER
-                    </Link>
+            <header className="site-header">
+                <div className="header-inner">
+                    <a href="/" className="brand">
+                        {/* logo */}
+                        <img src="https://ruiinternet.co.ke/images/logo1.PNG" alt="RUII Logo" className="header-logo logo-top"  />
+                    </a>
 
-                    <nav>
-                        <Link to="/">Home</Link>
-                        <Link to="/blog">Blog</Link>
-                        <Link to="/career">Jobs</Link>
+                    <nav className="main-nav">
+                        <a href="https://ruiinternet.co.ke">Home</a>
+                        <a href="https://ruiinternet.co.ke/about.html">About RUII</a>
+                        <a href="https://ruiinternet.co.ke/services.html">Our Services</a>
+                        <a href="https://ruiinternet.co.ke/frontend_cms/blog" >Blog</a>
+                        <a href="https://ruiinternet.co.ke/frontend_cms/career" className="active">Careers</a>
+                        <a href="https://ruiinternet.co.ke/contact.html">Contact</a>
                     </nav>
+
+                    <a href="https://ruiinternet.co.ke/contact" className="header-button">
+                        Get in touch <span>↗</span>
+                    </a>
                 </div>
             </header>
 
-            <section className="career-banner">
-                <div className="career-container">
-                    <h1>Find Your Next Opportunity</h1>
-                    <p>
-                        Explore opportunities and take the next step
-                        in your professional journey.
-                    </p>
+            {/* Page banner */}
+            <section className="page-banner">
+                <div className="banner-overlay"></div>
+                <div className="banner-content">
+                    <span className="eyebrow">RUII CAREERS</span>
+                    <h1>Available Jobs</h1>
+                    <p>Discover opportunities that match your ambitions.</p>
+                    <div className="breadcrumbs">
+                        <a href="/">Home</a>
+                        <span>/</span>
+                        <span>Available Jobs</span>
+                    </div>
                 </div>
             </section>
+
 
             <main className="career-container career-content">
 

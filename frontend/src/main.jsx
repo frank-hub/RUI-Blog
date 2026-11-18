@@ -11,7 +11,7 @@ import ArticleDetail from './ArticleDetail.jsx';
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename="/frontend_cms">
             <Routes>
                 <Route path="/" element={<App />} />
                 <Route path="/blog" element={<App />} />

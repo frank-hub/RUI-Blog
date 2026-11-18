@@ -700,3 +700,11 @@
     background: #f4f6f8;
     color: #172a43;
 }
+.logo-top {
+    width: 150px;
+    height: auto;
+}
+.logo-bottom {
+    width: 150px;
+    height: auto;
+}
